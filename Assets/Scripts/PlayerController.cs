@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    PhotonView photonView;
+    public PhotonView photonView;
 
     private void Start()
     {
-        photonView = GetComponent<PhotonView>();   
+        photonView = GetComponent<PhotonView>();
+        Cursor.visible = false;
     }
 
     private void Update()

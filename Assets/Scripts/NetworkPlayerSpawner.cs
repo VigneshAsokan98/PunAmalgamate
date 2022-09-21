@@ -10,6 +10,9 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
 
     public GameObject xrOrigin;
     public bool isPlayerPC = false;
+
+    public Transform PCspawnpoint;
+    public Transform VRspawnpoint;
     private void Start()
     {
         if (isPlayerPC)
@@ -20,9 +23,9 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
         base.OnJoinedRoom();
 
         if (isPlayerPC)
-            SpawnedPlayerPrefab = PhotonNetwork.Instantiate("PCPlayer", new Vector3(0, 1, 5), transform.rotation);
+            SpawnedPlayerPrefab = PhotonNetwork.Instantiate("PCPlayer", PCspawnpoint.position, transform.rotation);
         else
-            SpawnedPlayerPrefab = PhotonNetwork.Instantiate("VRPlayer", transform.position, transform.rotation);
+            SpawnedPlayerPrefab = PhotonNetwork.Instantiate("VRPlayer", VRspawnpoint.position, transform.rotation);
     }
 
     public override void OnLeftRoom()
