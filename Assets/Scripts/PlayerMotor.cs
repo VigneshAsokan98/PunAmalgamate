@@ -21,6 +21,8 @@ public class PlayerMotor : MonoBehaviour
     public Transform cam;
 
     Rigidbody rb;
+
+    public Animator animator;
     private void Awake()
     {
         playerInputs = new PCInputActions();
@@ -62,6 +64,11 @@ public class PlayerMotor : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetangle, 0f) * Vector3.forward;
             transform.position += transform.forward * direction.z * speed * Time.fixedDeltaTime;
+
+            if(direction.z >= 0.1)
+                animator.SetBool("IsRunning", true);
+            else
+                animator.SetBool("IsRunning", false);
         }
     }
 }

@@ -22,4 +22,13 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Camera Disablinggg!");
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.CompareTag("Exit"))
+        {
+            Debug.Log("Maze Exit");
+
+        }
+    }
 }
