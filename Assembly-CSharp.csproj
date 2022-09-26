@@ -77,6 +77,7 @@
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
     <Compile Include="Assets\Inputs\PCInputActions.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
+    <Compile Include="Assets\LaserPointer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
@@ -757,21 +758,25 @@
       <Project>{EE9FC2D8-263A-CB76-8216-151229813413}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.csproj">
-      <Project>{C8E66682-ABE7-2271-08EE-4B5D4BCA2BEE}</Project>
-      <Name>Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection</Name>
+    <ProjectReference Include="Unity.ProBuilder.csproj">
+      <Project>{2C1C9E7B-88B3-821C-131E-CB95CCBD41E1}</Project>
+      <Name>Unity.ProBuilder</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.InputSystem.csproj">
       <Project>{2A846840-1B71-42A4-6113-6D00DD8848E4}</Project>
       <Name>Unity.InputSystem</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Rider.Editor.csproj">
+      <Project>{0D154F07-00FD-4458-D3AD-54156A7C71B6}</Project>
+      <Name>Unity.Rider.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="PunDemos.DemoHubEditor.csproj">
       <Project>{622184E8-506A-62CC-7C0F-1F7374315E32}</Project>
       <Name>PunDemos.DemoHubEditor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.Rider.Editor.csproj">
-      <Project>{0D154F07-00FD-4458-D3AD-54156A7C71B6}</Project>
-      <Name>Unity.Rider.Editor</Name>
+    <ProjectReference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.csproj">
+      <Project>{C8E66682-ABE7-2271-08EE-4B5D4BCA2BEE}</Project>
+      <Name>Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.SpatialTracking.csproj">
       <Project>{FD5AD581-D142-4769-F3EF-32B1773D3569}</Project>
@@ -788,6 +793,14 @@
     <ProjectReference Include="PhotonUnityNetworking.csproj">
       <Project>{BA019337-214F-027A-1278-B3FE37B62CF0}</Project>
       <Name>PhotonUnityNetworking</Name>
+    </ProjectReference>
+    <ProjectReference Include="Cinemachine.csproj">
+      <Project>{4ED66BFA-4DFD-C56A-6B86-07EEFE1BE07C}</Project>
+      <Name>Cinemachine</Name>
+    </ProjectReference>
+    <ProjectReference Include="com.unity.cinemachine.editor.csproj">
+      <Project>{006AF356-7563-CF51-E385-91C1487A0221}</Project>
+      <Name>com.unity.cinemachine.editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.Management.csproj">
       <Project>{C08CA567-2963-7BF5-7947-9A9E7EA9394F}</Project>
@@ -808,6 +821,10 @@
     <ProjectReference Include="Unity.VisualScripting.Flow.Editor.csproj">
       <Project>{C644CA3F-ED00-96AD-0765-C1FDDB61B027}</Project>
       <Name>Unity.VisualScripting.Flow.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.AddOns.Editor.csproj">
+      <Project>{9A43FD1D-D93C-E68A-C388-B5554A14035E}</Project>
+      <Name>Unity.ProBuilder.AddOns.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
       <Project>{BAE856AC-23A4-6E6B-9174-3389451C6E69}</Project>
@@ -841,6 +858,10 @@
       <Project>{A54ADF82-461B-47D1-785E-16D48BF865B4}</Project>
       <Name>Unity.Subsystem.Registration</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.Editor.csproj">
+      <Project>{FF2CE868-D675-46C7-1FC4-B53D916E440D}</Project>
+      <Name>Unity.ProBuilder.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
       <Project>{47278D79-6D7B-1B94-6300-E48747263FC6}</Project>
       <Name>Unity.VisualScripting.Flow</Name>
@@ -872,6 +893,10 @@
     <ProjectReference Include="Unity.Services.Core.Analytics.csproj">
       <Project>{7B36AE72-E3F9-07F0-1C4C-83DA8961A206}</Project>
       <Name>Unity.Services.Core.Analytics</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.AssetIdRemapUtility.csproj">
+      <Project>{77B52BA9-C882-8EAB-8C55-94D93C987928}</Project>
+      <Name>Unity.ProBuilder.AssetIdRemapUtility</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.XR.LegacyInputHelpers.csproj">
       <Project>{9A9A7847-7600-1084-79BE-91EB42A084DB}</Project>
@@ -936,30 +961,6 @@
     <ProjectReference Include="Unity.VisualScripting.State.csproj">
       <Project>{AA8F8AFC-94CF-4A93-34F1-EA9F7167C5B2}</Project>
       <Name>Unity.VisualScripting.State</Name>
-    </ProjectReference>
-    <ProjectReference Include="com.unity.cinemachine.editor.csproj">
-      <Project>{006AF356-7563-CF51-E385-91C1487A0221}</Project>
-      <Name>com.unity.cinemachine.editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Cinemachine.csproj">
-      <Project>{4ED66BFA-4DFD-C56A-6B86-07EEFE1BE07C}</Project>
-      <Name>Cinemachine</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.csproj">
-      <Project>{2C1C9E7B-88B3-821C-131E-CB95CCBD41E1}</Project>
-      <Name>Unity.ProBuilder</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.AddOns.Editor.csproj">
-      <Project>{9A43FD1D-D93C-E68A-C388-B5554A14035E}</Project>
-      <Name>Unity.ProBuilder.AddOns.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.Editor.csproj">
-      <Project>{FF2CE868-D675-46C7-1FC4-B53D916E440D}</Project>
-      <Name>Unity.ProBuilder.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProBuilder.AssetIdRemapUtility.csproj">
-      <Project>{77B52BA9-C882-8EAB-8C55-94D93C987928}</Project>
-      <Name>Unity.ProBuilder.AssetIdRemapUtility</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

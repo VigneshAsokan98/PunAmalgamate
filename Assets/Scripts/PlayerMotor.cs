@@ -48,7 +48,7 @@ public class PlayerMotor : MonoBehaviour
         {
             direction = new Vector3(move.ReadValue<Vector2>().x, 0, move.ReadValue<Vector2>().y).normalized;
         }
-        else
+        else 
             cam.gameObject.SetActive(false);
     }
 
