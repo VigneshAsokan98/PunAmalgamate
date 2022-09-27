@@ -9,20 +9,21 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
     private GameObject SpawnedPlayerPrefab;
 
     public GameObject xrOrigin;
-    public bool isPlayerPC = false;
 
     public Transform PCspawnpoint;
     public Transform VRspawnpoint;
+
+    public GameSetting settings;
     private void Start()
     {
-        if (isPlayerPC)
+        if (settings.Build_platform == GameSetting.Platform.PC)
             xrOrigin.SetActive(false);
     }
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
 
-        if (isPlayerPC)
+        if (settings.Build_platform == GameSetting.Platform.PC)
             SpawnedPlayerPrefab = PhotonNetwork.Instantiate("PCPlayer", PCspawnpoint.position, transform.rotation);
         else
             SpawnedPlayerPrefab = PhotonNetwork.Instantiate("VRPlayer", VRspawnpoint.position, transform.rotation);

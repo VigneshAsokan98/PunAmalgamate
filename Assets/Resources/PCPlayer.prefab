@@ -492,7 +492,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2511590055817901855}
-  m_LocalRotation: {x: 0.0013888995, y: 0.0008435975, z: -0.0000011716736, w: 0.9999987}
+  m_LocalRotation: {x: 0.0013888796, y: 0.0008436319, z: -0.0000011717049, w: 0.9999987}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -685,12 +685,11 @@ GameObject:
   - component: {fileID: 2561315851312630498}
   - component: {fileID: 2628997153382304910}
   - component: {fileID: 5331945644205134692}
-  - component: {fileID: 1435929104309254467}
-  - component: {fileID: 7343681046645363758}
   - component: {fileID: 2722446353683594325}
+  - component: {fileID: 6024919794422385872}
   m_Layer: 0
   m_Name: PCPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -726,7 +725,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e78bebf9e2593499beb5e31f6a9c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 20
+  TurnSmoothTime: 0.5
   cam: {fileID: 8818834023243145095}
   animator: {fileID: 2277313860238596669}
 --- !u!114 &2628997153382304910
@@ -742,6 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   photonView: {fileID: 0}
+  isKeyPicked: 0
 --- !u!114 &5331945644205134692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,35 +769,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!54 &1435929104309254467
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5690024503502987411}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 1
---- !u!65 &7343681046645363758
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5690024503502987411}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 4, z: 1}
-  m_Center: {x: 0, y: 1.9, z: 0}
 --- !u!114 &2722446353683594325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,6 +785,24 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!143 &6024919794422385872
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5690024503502987411}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 3.98
+  m_Radius: 0.7
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1.9, z: 0}
 --- !u!1 &6869099220759221945
 GameObject:
   m_ObjectHideFlags: 0

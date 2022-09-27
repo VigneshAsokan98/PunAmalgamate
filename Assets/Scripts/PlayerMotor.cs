@@ -16,13 +16,14 @@ public class PlayerMotor : MonoBehaviour
     PlayerController playerController;
     CharacterController characterController;
     float TurnVelocity;
-    float TurnSmoothTime = 0.5f;
+    public float TurnSmoothTime = 0.1f;
 
     public Transform cam;
 
     Rigidbody rb;
 
     public Animator animator;
+    Vector3 gravity;
     private void Awake()
     {
         playerInputs = new PCInputActions();
@@ -52,23 +53,29 @@ public class PlayerMotor : MonoBehaviour
         }
         else 
             cam.gameObject.SetActive(false);
-    }
 
-    private void FixedUpdate()
-    {
-        if (playerController.photonView.IsMine )
+
+        if (playerController.photonView.IsMine)
         {
-            float targetangle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetangle, ref TurnVelocity, TurnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0);
+            if (direction.magnitude >= 0.1f)
+            {
+                float targetangle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetangle, ref TurnVelocity, TurnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0);
 
-            Vector3 moveDir = Quaternion.Euler(0f, targetangle, 0f) * Vector3.forward;
-            transform.position += transform.forward * direction.z * speed * Time.fixedDeltaTime;
+                Vector3 moveDir = Quaternion.Euler(0f, targetangle, 0f) * Vector3.forward;
 
-            if(direction.z >= 0.1)
+                characterController.Move(moveDir.normalized * speed * Time.deltaTime);
+
+                //transform.position += transform.forward * direction.z * speed * Time.fixedDeltaTime;
+            
                 animator.SetBool("IsRunning", true);
+            }
             else
                 animator.SetBool("IsRunning", false);
         }
+
+        gravity.y += -9.81f * Time.deltaTime;
+        characterController.Move(gravity * Time.deltaTime);
     }
 }

@@ -8,9 +8,29 @@ using System;
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     int SceneIdx = 1;
+    public GameSetting gameSetting;
+    public GameObject VRrig;
+    public Camera PCcamera;
+    public Camera VRcamera;
+    public Canvas canvas;
+
     private void Start()
     {
         SceneIdx = PlayerPrefs.GetInt("CurrentLevelIdx", 1);
+
+        if (gameSetting.Build_platform == GameSetting.Platform.PC)
+        {
+            VRrig.SetActive(false);
+            PCcamera.gameObject.SetActive(true);
+            canvas.worldCamera = PCcamera;
+        }
+        else
+        {
+            VRrig.SetActive(true);
+            PCcamera.gameObject.SetActive(false);
+            canvas.worldCamera = VRcamera;
+        }
+
     }
     public void connectToServer()
     {

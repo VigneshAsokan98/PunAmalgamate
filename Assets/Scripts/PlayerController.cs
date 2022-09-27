@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public PhotonView photonView;
-
+    public bool isKeyPicked =false;
     private void Start()
     {
         photonView = GetComponent<PhotonView>();
@@ -29,6 +29,14 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Maze Exit");
 
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Key"))
+        {
+            Destroy(other.gameObject);
+            isKeyPicked = true;
         }
     }
 }
