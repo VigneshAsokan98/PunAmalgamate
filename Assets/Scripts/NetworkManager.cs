@@ -7,7 +7,6 @@ using System;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
-    int SceneIdx = 1;
     public GameSetting gameSetting;
     public GameObject VRrig;
     public Camera PCcamera;
@@ -16,7 +15,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        SceneIdx = PlayerPrefs.GetInt("CurrentLevelIdx", 1);
 
         if (gameSetting.Build_platform == GameSetting.Platform.PC)
         {
@@ -42,13 +40,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Connected to Server");
         base.OnConnectedToMaster();
+        PhotonNetwork.AutomaticallySyncScene = true;
         InitRoom(); 
     }
     public void InitRoom()
     {
-        //Loading Scene
-        PhotonNetwork.LoadLevel(SceneIdx);
-
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
         roomOptions.IsOpen = true;
@@ -59,6 +55,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Room Joined");
         base.OnJoinedRoom();
+        //Loading Scene
+        PhotonNetwork.LoadLevel("Game");
 
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)

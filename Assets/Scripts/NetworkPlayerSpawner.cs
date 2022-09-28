@@ -23,10 +23,7 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
 
-        if (settings.Build_platform == GameSetting.Platform.PC)
-            SpawnedPlayerPrefab = PhotonNetwork.Instantiate("PCPlayer", PCspawnpoint.position, transform.rotation);
-        else
-            SpawnedPlayerPrefab = PhotonNetwork.Instantiate("VRPlayer", VRspawnpoint.position, transform.rotation);
+        SpawnedPlayerPrefab = GameManager.instance.SpawnPlayers();
     }
 
     public override void OnLeftRoom()

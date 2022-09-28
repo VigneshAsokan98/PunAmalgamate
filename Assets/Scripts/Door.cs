@@ -30,6 +30,7 @@ public class Door : MonoBehaviour
     private void OpenDoor()
     {
         GetComponent<BoxCollider>().enabled = false;
+        GetComponent<SphereCollider>().enabled = false;
         GetComponent<Animation>().Play();
     }
 }
