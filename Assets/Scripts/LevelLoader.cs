@@ -32,7 +32,7 @@ public class LevelLoader : MonoBehaviour
 
     public void InitLevel()
     {        
-        CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
+        CurrentLevel = 0;
         LoadLevel(CurrentLevel);
     }
     public void LoadLevel(int levelidx)

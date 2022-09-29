@@ -8,7 +8,7 @@ using System;
 using UnityEngine.SceneManagement;
 using Photon.Pun.Demo.Asteroids;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPunCallbacks
 {
 
     static public GameManager instance;
@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     Transform PCspawnPoint;
     Transform VRspawnPoint;
     public GameSetting settings;
+    int currentLevel = 0;
     private void Awake()
     {
         instance = this;
@@ -33,30 +34,25 @@ public class GameManager : MonoBehaviour
         {
             PCspawnPoint = GameObject.FindGameObjectWithTag("PCSpawn").transform;
             VRspawnPoint = GameObject.FindGameObjectWithTag("VRSpawn").transform;
-            SpawnPlayers();
+            SpawnedPlayerPrefab = SpawnPlayers();
         }
     }
 
     public void LoadNextLevel()
     {
+        PhotonNetwork.Destroy(SpawnedPlayerPrefab);
         view.RPC("LoadLevel", RpcTarget.All);
     }
 
     [PunRPC]
     void LoadLevel()
     {
-        int currentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
         currentLevel++;
         if (currentLevel > LevelLoader.Instance.MaxLevels)
             currentLevel = 0;
-        PlayerPrefs.SetInt("CurrentLevel", currentLevel);
-        //PhotonNetwork.Destroy(SpawnedPlayerPrefab);
-        if (settings.Build_platform == GameSetting.Platform.PC)
-        {
-            PhotonNetwork.Destroy(SpawnedPlayerPrefab);
-            SpawnedPlayerPrefab = PhotonNetwork.Instantiate("PCPlayer", PCspawnPoint.position, Quaternion.identity);
-        }
+
         LevelLoader.Instance.LoadLevel(currentLevel);
+        SpawnPlayers();
     }
 
     public GameObject SpawnPlayers()
@@ -66,6 +62,17 @@ public class GameManager : MonoBehaviour
         else
             SpawnedPlayerPrefab = PhotonNetwork.Instantiate("VRPlayer", VRspawnPoint.position, Quaternion.identity);
 
+        Debug.LogError("Player Spawned!!");
         return SpawnedPlayerPrefab;
+    }
+    public override void OnJoinedRoom()
+    {
+        base.OnJoinedRoom();
+        
+    }
+    public override void OnLeftRoom()
+    {
+        base.OnLeftRoom();
+        PhotonNetwork.Destroy(SpawnedPlayerPrefab);
     }
 }

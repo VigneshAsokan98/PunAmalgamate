@@ -47,6 +47,8 @@ MonoBehaviour:
   Levels:
   - {fileID: 2800000, guid: d878383f0cb93d848979c4cac84b1349, type: 3}
   - {fileID: 2800000, guid: 23a5b09a25af1414cb9841a223f0942f, type: 3}
+  - {fileID: 2800000, guid: 44fa49642e60a2c4db2a0ae2bde3b33c, type: 3}
+  - {fileID: 2800000, guid: 9348ab70fa81cbc419fd9c297488586d, type: 3}
   colorMaps:
   - color: {r: 0, g: 0, b: 0, a: 1}
     prefab: {fileID: 7928539723378612887, guid: 36b0374033ad49a4c84c341ea6a415b1, type: 3}

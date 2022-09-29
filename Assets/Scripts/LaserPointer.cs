@@ -12,7 +12,7 @@ public class LaserPointer : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.forward,out hit,300, layerMask,QueryTriggerInteraction.Collide))
+        if(Physics.Raycast(transform.position, transform.forward,out hit,400, layerMask,QueryTriggerInteraction.Collide))
         {
             Debug.LogError("Wall Hit!!!");
             Flag.gameObject.SetActive(true);

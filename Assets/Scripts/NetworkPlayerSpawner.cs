@@ -22,8 +22,7 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-
-        SpawnedPlayerPrefab = GameManager.instance.SpawnPlayers();
+        //SpawnedPlayerPrefab = GameManager.instance.SpawnPlayers();
     }
 
     public override void OnLeftRoom()

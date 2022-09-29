@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Maze Exit" + isExitHit);
             isExitHit = true;
             GameManager.instance.LoadNextLevel();
+            PhotonNetwork.Destroy(this.gameObject);
         }
     }
 
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
     public void ResetPosition(Vector3 position)
     {
         Debug.LogError("Player Reset");
-        transform.position = position;
+        transform.position = position; 
+        isExitHit = false;
     }
 }
