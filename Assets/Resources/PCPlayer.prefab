@@ -727,7 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e78bebf9e2593499beb5e31f6a9c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: 25
   TurnSmoothTime: 0.1
   cam: {fileID: 8818834023243145095}
   animator: {fileID: 2277313860238596669}
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   photonView: {fileID: 0}
-  isKeyPicked: 1
+  isKeyPicked: 0
   isExitHit: 0
 --- !u!114 &5331945644205134692
 MonoBehaviour:

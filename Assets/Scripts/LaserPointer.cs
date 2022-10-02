@@ -14,7 +14,7 @@ public class LaserPointer : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.forward,out hit,400, layerMask,QueryTriggerInteraction.Collide))
         {
-            Debug.LogError("Wall Hit!!!");
+            //Debug.LogError("Wall Hit!!!");
             Flag.gameObject.SetActive(true);
             Flag.position = hit.point; 
         }

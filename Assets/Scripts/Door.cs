@@ -6,6 +6,11 @@ using TMPro;
 public class Door : MonoBehaviour
 {
     public TextMeshProUGUI PromptUI;
+
+    private void Start()
+    {
+        //PromptUI = GameObject.FindGameObjectWithTag("Prompt").GetComponent<TextMeshProUGUI>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))

@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     public void ResetPosition(Vector3 position)
     {
-        Debug.LogError("Player Reset");
+        //Debug.LogError("Player Reset");
         transform.position = position; 
         isExitHit = false;
     }

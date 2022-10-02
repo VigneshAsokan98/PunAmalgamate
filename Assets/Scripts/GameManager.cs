@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         else
             SpawnedPlayerPrefab = PhotonNetwork.Instantiate("VRPlayer", VRspawnPoint.position, Quaternion.identity);
 
-        Debug.LogError("Player Spawned!!");
+       // Debug.LogError("Player Spawned!!");
         return SpawnedPlayerPrefab;
     }
     public override void OnJoinedRoom()

@@ -7,6 +7,7 @@ using System;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
+    #region Variables 
     public GameSetting gameSetting;
     public GameObject VRrig;
     public Camera PCcamera;
@@ -35,7 +36,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
         Debug.Log("Initialing Connection!");
     }
-
+    #endregion
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connected to Server");
